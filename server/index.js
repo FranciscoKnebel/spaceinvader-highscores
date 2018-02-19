@@ -14,7 +14,7 @@ db.once('open', () => {
 	const http = require('http').Server(app);
 	require('./socket')(http, db);
 
-	http.listen(process.env.PORT, (x, y) => {
+	http.listen(process.env.PORT, () => {
 		console.log(`Listening on port ${process.env.PORT}`);
 	});
 });
