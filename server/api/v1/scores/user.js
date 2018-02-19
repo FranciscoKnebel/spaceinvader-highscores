@@ -1,4 +1,6 @@
 const timeFilter = require('../timeFilter');
+const response = require('../response');
+
 const Highscores = require('../../../schemas/highscore');
 
 function searchHighscores(params) {
@@ -16,24 +18,22 @@ module.exports = (app) => {
 
 	app.get('/api/v1/scores/user/:username/:filter', (req, res) => {
 		const params = timeFilter(req.params.filter);
-
 		if (params === false) {
-			res.send(`"${req.params.filter}" filter is invalid.`);
+			response(req, res, `"${req.params.filter}" filter is invalid.`);
 		}
 		params.player = req.params.username;
 
-		return searchHighscores(params).then(docs => res.send(docs));
+		return searchHighscores(params).then(docs => response(req, res, docs));
 	});
 
 	app.get('/api/v1/scores/user/:username/:filter/:version', (req, res) => {
 		const params = timeFilter(req.params.filter);
-
 		if (params === false) {
-			res.send(`"${req.params.filter}" filter is invalid.`);
+			response(req, res, `"${req.params.filter}" filter is invalid.`);
 		}
 		params.player = req.params.username;
 		params.version = req.params.version;
 
-		return searchHighscores(params).then(docs => res.send(docs));
+		return searchHighscores(params).then(docs => response(req, res, docs));
 	});
 };

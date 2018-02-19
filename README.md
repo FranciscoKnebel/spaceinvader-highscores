@@ -18,7 +18,7 @@ You can play the latest stable release right here in your browser, at https://fr
 ## API - v1
 ### Scores
 Results may have time filter options.
-The valid filters are: `all-time`, `last-week`, `last-month` and `last-year`.
+The valid filters are: `all-time`, `today`, `since-yesterday`, `last-week`, `last-month`, `last-semester` and `last-year`.
 If no filter is provided, defaults to all-time.
 
 ---

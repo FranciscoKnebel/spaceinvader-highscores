@@ -7,6 +7,20 @@ module.exports = (filter) => {
 	case 'all-time':
 		searchParams = {};
 		break;
+	case 'today':
+		searchParams = {
+			createdAt: {
+				$gte: moment().startOf('day').toDate()
+			}
+		};
+		break;
+	case 'since-yesterday':
+		searchParams = {
+			createdAt: {
+				$gte: moment().startOf('day').subtract(1, 'day').toDate()
+			}
+		};
+		break;
 	case 'last-week':
 		searchParams = {
 			createdAt: {
@@ -18,6 +32,13 @@ module.exports = (filter) => {
 		searchParams = {
 			createdAt: {
 				$gte: moment().startOf('day').subtract(1, 'month').toDate()
+			}
+		};
+		break;
+	case 'last-semester':
+		searchParams = {
+			createdAt: {
+				$gte: moment().startOf('day').subtract(6, 'month').toDate()
 			}
 		};
 		break;
