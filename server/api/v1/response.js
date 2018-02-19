@@ -8,5 +8,5 @@ module.exports = (req, res, data) => {
 		data
 	};
 
-	return res.json(responseObject);
+	return res.send(responseObject);
 };

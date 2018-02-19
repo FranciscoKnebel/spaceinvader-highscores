@@ -38,6 +38,19 @@ Returns the top10 best scores, according to the time filter provided.
 Returns the top10 best scores, according to the time filter provided.
 Version corresponds to a version of Space Invader ( ex: _0.1.4_ ).
 
+---
+### Versions
+Finding out all versions which have scores.
+
+---
+#### Find
+##### `/api/v1/versions/find`
+Returns an array of all versions found on the highscores.
+
+##### `/api/v1/versions/find/:filter`
+// TODO
+
+
 -------------------------------------------------------------------------------
 
 ## Credits
