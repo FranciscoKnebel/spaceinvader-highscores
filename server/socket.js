@@ -18,14 +18,16 @@ module.exports = (http) => {
 			console.log(`User ${socket.id} disconnected.`);
 		});
 
-		socket.on('new score', (score, player, version) => {
+		socket.on('new score', (score, level, player, mobile, version) => {
 			if (version === '<<si_release_version>>') {
 				// test version, only do a mock save.
 				socket.emit('score saved');
 			} else {
 				const document = new Highscore({
 					score,
+					level,
 					player,
+					mobile,
 					version
 				});
 
@@ -46,7 +48,7 @@ module.exports = (http) => {
 // 	console.log(docs);
 // });
 //
-// Delete all scores
+// // Delete all scores
 // Highscore.remove({}, () => {
 // 	console.log('done');
 // });
