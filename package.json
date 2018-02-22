@@ -35,6 +35,7 @@
   },
   "homepage": "https://github.com/FranciscoKnebel/spaceinvader-highscores#readme",
   "dependencies": {
+    "cors": "^2.8.4",
     "dotenv": "^5.0.0",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
